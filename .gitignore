@@ -1,0 +1,12 @@
+.idea
+.idea/*
+/*
+!/wp-content/
+/wp-content/*
+!/wp-content/themes/
+/wp-content/themes/*
+!/wp-content/themes/mega-tools
+/wp-content/themes/mega-tools/assets/node_modules
+!/wp-content/plugins/
+!.gitignore
+!README.md
