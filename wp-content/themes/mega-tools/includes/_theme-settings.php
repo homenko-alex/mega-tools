@@ -26,6 +26,18 @@ if ( ! function_exists( 'mega_setup' ) )
         remove_image_size( 'thumbnail-100x100' );
         remove_image_size( 'thumbnail-150x150' );
         remove_image_size( 'thumbnail-300x300' );
+
+	    remove_image_size( '100x100' );
+	    remove_image_size( '150x150' );
+	    remove_image_size( '300x300' );
+
+	    remove_image_size( 'woocommerce_thumbnail' );
+	    remove_image_size( 'woocommerce_single' );
+	    remove_image_size( 'woocommerce_gallery_thumbnail' );
+	    remove_image_size( 'shop_catalog' );
+	    remove_image_size( 'shop_single' );
+	    remove_image_size( 'shop_thumbnail' );
+
     }
     mega_setup();
 

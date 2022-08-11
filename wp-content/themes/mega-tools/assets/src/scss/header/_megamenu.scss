@@ -37,12 +37,12 @@
 }
 .megamenu--departments {
     @include direction {
-        #{$padding-inline-end}: 31px;
+        /*#{$padding-inline-end}: 31px;*/
     }
 
     @media (min-width: breakpoint(lg-start)) and (max-width: breakpoint(lg-end)) {
         @include direction {
-            #{$padding-inline-end}: 32px;
+            /*#{$padding-inline-end}: 32px;*/
         }
     }
 }
@@ -55,6 +55,7 @@
     a {
         color: $megamenu-primary-link-color;
         transition: color .15s;
+        line-height: 1.2;
 
         &:hover {
             color: $link-hover-color;
@@ -62,9 +63,26 @@
     }
 }
 .megamenu__links--level--0 {
+    column-count: 3;
+    column-gap: 40px;
+
+    &::after {
+        content: '';
+        width: 100%;
+        display: inline-block;
+    }
+
+    > li {
+        width: 100%;
+        display: block;
+        margin: 0 0 30px 0;
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
     & > .megamenu__item + .megamenu__item--with-submenu,
     & > .megamenu__item--with-submenu + .megamenu__item {
-        margin-top: 20px;
+        /*margin-top: 20px;*/
     }
 
     & > .megamenu__item {
@@ -72,7 +90,8 @@
     }
 
     & > .megamenu__item > a {
-        font-weight: $font-weight-medium;
+        font-weight: $font-weight-bold;
+        line-height: 1.2;
     }
 
     & > .megamenu__item > a + .megamenu__links {
@@ -82,13 +101,24 @@
     }
 }
 .megamenu__links--level--1 {
-    & > .megamenu__item > a {
-        font-size: 14px;
-        color: $megamenu-secondary-link-color;
-        transition: color .15s;
 
-        &:hover {
-            color: $link-hover-color;
+    & > .megamenu__item {
+        line-height: 1.2;
+
+        &:not(:last-child) {
+            margin-bottom: 5px;
+        }
+
+        > a {
+            font-size: 12px;
+            color: $megamenu-secondary-link-color;
+            transition: color .15s;
+            font-weight: $font-weight-medium;
+
+            &:hover {
+                color: $link-hover-color;
+            }
         }
     }
+
 }

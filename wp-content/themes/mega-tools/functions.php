@@ -1,4 +1,9 @@
 <?php
+
+/**
+ * ACF
+ */
+require get_template_directory() . '/includes/_acf.php';
 /**
  * Customizer additions.
  */
