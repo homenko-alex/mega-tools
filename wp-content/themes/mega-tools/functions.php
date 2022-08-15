@@ -42,8 +42,11 @@ require get_template_directory() . '/includes/_custom-footer.php';
 /**
  * Load WooCommerce compatibility file.
  */
-if ( class_exists( 'WooCommerce' ) ) {
-    require get_template_directory() . '/includes/_woocommerce-settings.php';
+if ( class_exists( 'WooCommerce' ) )
+{
+    require get_template_directory() . '/includes/woocommerce/_woocommerce-settings.php';
+	require get_template_directory() . '/includes/woocommerce/_woocommerce-helpers.php';
+	require get_template_directory() . '/includes/woocommerce/_woocommerce-loop-product.php';
 }
 
 add_filter( 'upload_size_limit', 'PBP_increase_upload' );

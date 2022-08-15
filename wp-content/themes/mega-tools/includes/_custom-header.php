@@ -258,10 +258,10 @@ function mega_header_TagHeaderInner()
                                                                     <!-- .megamenu -->
                                                                     <div class="megamenu  megamenu--departments ">
 																		<?php
-																		//$thumbnail_id = get_woocommerce_term_meta( $category['id'], 'thumbnail_id', true );
-																		//$image = wp_get_attachment_url( $thumbnail_id );
+																		$thumbnail_id = get_woocommerce_term_meta( $category['id'], 'thumbnail_id', true );
+																		$image = wp_get_attachment_url( $thumbnail_id );
 																		?>
-                                                                        <div class="megamenu__body" style="background-image: url();">
+                                                                        <div class="megamenu__body" style="background-image: url('<?= $image ?>');">
 
                                                                             <div class="row">
                                                                                 <div class="col-12">
@@ -277,7 +277,7 @@ function mega_header_TagHeaderInner()
                                                                                                         <a href="">
                                                                                                             <?= $item['name'] ?>
                                                                                                         </a>
-                                                                                                        <?php if( $i === 5 ) break; ?>
+                                                                                                        <?php if( $i === 4 ) break; ?>
                                                                                                     </li>
 					                                                                                <?php $i++; } ?>
                                                                                                 </ul>

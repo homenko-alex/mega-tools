@@ -18,7 +18,7 @@ add_action( 'after_setup_theme', 'mega_woocommerce_setup' );
 add_filter('woocommerce_currency_symbol', 'mega_add_my_currency_symbol', 10, 2);
 function mega_add_my_currency_symbol( $currency_symbol, $currency ) {
     switch( $currency ) {
-        case 'UAH': $currency_symbol = __( 'грн', 'mega' ); break;
+        case 'UAH': $currency_symbol = __( 'грн.', 'mega-tools' ); break;
     }
     return $currency_symbol;
 }

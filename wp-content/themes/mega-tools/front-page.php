@@ -14,16 +14,26 @@
  */
 get_header();
 
-while ( have_posts() ) :
+while ( have_posts() )
+{
 
-    the_post();
+	the_post();
 
-    /*
-     * Home: Intro
-     */
-    //get_template_part('template-parts/pages/home/home', 'intro');
+	/*
+	 * Home: Slider
+	 */
+	get_template_part( 'template-parts/home/home', 'slider' );
 
+	/**
+	 * Home: Advantages
+	 */
+	get_template_part( 'template-parts/home/home', 'advantages' );
 
-endwhile; // End of the loop.
+	/**
+	 * Home: Featured Prodcuts
+	 */
+	get_template_part( 'template-parts/home/home', 'featured' );
+
+}
 
 get_footer();
