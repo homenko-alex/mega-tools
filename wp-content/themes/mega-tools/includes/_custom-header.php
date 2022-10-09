@@ -7,7 +7,7 @@ add_action( 'header_parts', 'mega_header_TagHeaderOpen', 10 );
 function mega_header_TagHeaderOpen() {
 	?>
     <!-- HEADER -->
-    <header class="header">
+    <header class="site__header">
 	<?php
 };
 /*
@@ -237,7 +237,7 @@ function mega_header_TagHeaderInner()
                         <div class="nav-panel__row">
                             <div class="nav-panel__departments">
                                 <!-- .departments -->
-                                <div class="departments  departments--open departments--fixed " data-departments-fixed-by=".block-slideshow">
+                                <div class="departments <?= (is_home() || is_front_page()) ? 'departments--open departments--fixed' : '' ?>" data-departments-fixed-by="<?= (is_home() || is_front_page()) ? '.block-slideshow' : '' ?>">
                                     <div class="departments__body">
                                         <div class="departments__links-wrapper">
                                             <div class="departments__submenus-container"></div>
@@ -258,8 +258,9 @@ function mega_header_TagHeaderInner()
                                                                     <!-- .megamenu -->
                                                                     <div class="megamenu  megamenu--departments ">
 																		<?php
-																		$thumbnail_id = get_woocommerce_term_meta( $category['id'], 'thumbnail_id', true );
-																		$image = wp_get_attachment_url( $thumbnail_id );
+																		//$thumbnail_id = get_woocommerce_term_meta( $category['id'], 'thumbnail_id', true );
+																		//$image = wp_get_attachment_url( $thumbnail_id );
+																		$image = get_field('category_preview', 'product_cat_' . $category['id']);
 																		?>
                                                                         <div class="megamenu__body" style="background-image: url('<?= $image ?>');">
 

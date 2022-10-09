@@ -6,7 +6,18 @@
 @import '../mixins/direction';
 
 
-.footer-newsletter {}
+.footer-newsletter {
+
+    .screen-reader-response p,
+    .wpcf7-response-output,
+    .wpcf7-not-valid-tip{
+        display: none !important;
+    }
+    .wpcf7-response-output {
+
+    }
+
+}
 .footer-newsletter__title {
     margin-bottom: 25px;
 }

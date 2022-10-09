@@ -34,6 +34,41 @@ while ( have_posts() )
 	 */
 	get_template_part( 'template-parts/home/home', 'featured' );
 
+	/**
+	 * Home: Banner
+	 */
+	get_template_part( 'template-parts/home/home', 'banner' );
+
+	/**
+	 * Home: Bestsellers
+	 */
+	get_template_part( 'template-parts/home/home', 'bestsellers' );
+
+	/**
+	 * Home: Categories
+	 */
+	get_template_part( 'template-parts/home/home', 'categories' );
+
+	/**
+	 * Home: New Products
+	 */
+	get_template_part( 'template-parts/home/home', 'new-products' );
+
+	/**
+	 * Home: Blog
+	 */
+	get_template_part( 'template-parts/home/home', 'blog' );
+
+	/**
+	 * Home: Brands
+	 */
+	get_template_part( 'template-parts/home/home', 'brands' );
+
+	/**
+	 * Home: The Best
+	 */
+	get_template_part( 'template-parts/home/home', 'thebest' );
+
 }
 
 get_footer();

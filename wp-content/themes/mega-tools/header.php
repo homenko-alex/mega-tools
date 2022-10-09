@@ -31,3 +31,5 @@
      */
     do_action('header_parts');
     ?>
+        <!-- BODY -->
+        <div class="site__body" <?= is_shop() ? 'style="background-color:#f9f9f9"' : '' ?>>

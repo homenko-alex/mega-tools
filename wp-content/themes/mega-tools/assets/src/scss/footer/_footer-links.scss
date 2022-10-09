@@ -9,12 +9,19 @@
 .footer-links__title {
     margin-bottom: 22px;
 }
-.footer-links__list {
+.footer-links__list,
+#menu-footer-menyu,
+.site-footer__widget ul:not(.social-links__list){
     font-size: 15px;
     line-height: 28px;
     list-style: none;
     padding: 0;
     margin: 0;
+    box-shadow: unset;
+    background-color: transparent;
+    display: block;
+    width: unset;
+    font-weight: normal;
 
     a {
         color: inherit;

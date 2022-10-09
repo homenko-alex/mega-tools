@@ -6851,18 +6851,29 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-origin {
   margin-bottom: 22px;
 }
 
-.footer-links__list {
+.footer-links__list,
+#menu-footer-menyu,
+.site-footer__widget ul:not(.social-links__list) {
   font-size: 15px;
   line-height: 28px;
   list-style: none;
   padding: 0;
   margin: 0;
+  box-shadow: unset;
+  background-color: transparent;
+  display: block;
+  width: unset;
+  font-weight: normal;
 }
-.footer-links__list a {
+.footer-links__list a,
+#menu-footer-menyu a,
+.site-footer__widget ul:not(.social-links__list) a {
   color: inherit;
   transition: 0.15s;
 }
-.footer-links__list a:hover {
+.footer-links__list a:hover,
+#menu-footer-menyu a:hover,
+.site-footer__widget ul:not(.social-links__list) a:hover {
   color: #1a66ff;
 }
 
@@ -6879,6 +6890,11 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-origin {
 /*
 // .footer-newsletter
 */
+.footer-newsletter .screen-reader-response p,
+.footer-newsletter .wpcf7-response-output,
+.footer-newsletter .wpcf7-not-valid-tip {
+  display: none !important;
+}
 .footer-newsletter__title {
   margin-bottom: 25px;
 }

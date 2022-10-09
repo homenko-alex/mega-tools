@@ -52,3 +52,5 @@ function my_myme_types($mime_types){
     $mime_types['svg'] = 'image/svg+xml';
     return $mime_types;
 }
+
+add_filter( 'widget_text', 'do_shortcode' );

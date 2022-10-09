@@ -47,6 +47,7 @@ if ( class_exists( 'WooCommerce' ) )
     require get_template_directory() . '/includes/woocommerce/_woocommerce-settings.php';
 	require get_template_directory() . '/includes/woocommerce/_woocommerce-helpers.php';
 	require get_template_directory() . '/includes/woocommerce/_woocommerce-loop-product.php';
+	require get_template_directory() . '/includes/woocommerce/_woocommerce-shop.php';
 }
 
 add_filter( 'upload_size_limit', 'PBP_increase_upload' );

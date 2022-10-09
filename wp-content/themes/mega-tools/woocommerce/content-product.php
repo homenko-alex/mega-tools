@@ -23,8 +23,15 @@ global $product;
 if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
+
+$class = null;
+if( isset($args) && array_key_exists('class', $args) )
+{
+    $class = $args['class'];
+}
+
 ?>
-<div <?php wc_product_class( 'product-card product-card--hidden-actions', $product ); ?>>
+<div <?php wc_product_class( 'product-card product-card--hidden-actions ' . $class, $product ); ?>>
 	<?php
 	/**
 	 * Hook: woocommerce_before_shop_loop_item.

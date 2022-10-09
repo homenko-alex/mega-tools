@@ -1,3 +1,6 @@
+</div>
+<!-- END BODY -->
+
 <?php
 /**
  * The footer for our theme

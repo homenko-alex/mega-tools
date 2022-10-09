@@ -4,7 +4,8 @@ defined( 'ABSPATH' ) || exit;
  * Register jQuery
  */
 add_action( 'wp_enqueue_scripts', 'jquery_script_method' );
-function jquery_script_method() {
+function jquery_script_method()
+{
 	wp_deregister_script( 'jquery' );
 	wp_register_script( 'jquery', get_template_directory_uri() . '/assets/dist/vendor/jquery/jquery.min.js', false, null, false );
 	wp_enqueue_script( 'jquery' );
@@ -28,6 +29,8 @@ function mega_styles()
 	wp_enqueue_style( 'mega-fontawesome', get_template_directory_uri() . '/assets/dist/vendor/fontawesome/css/all.min.css', [], null );
 
 	wp_enqueue_style( 'mega-tools', get_template_directory_uri() . '/assets/dist/fonts/stroyka/stroyka.css', [], null );
+
+	wp_dequeue_style( 'contact-form-7' );
 
 }
 /**
