@@ -20,12 +20,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<form class="woocommerce-ordering" method="get">
-	<select name="orderby" class="orderby" aria-label="<?php esc_attr_e( 'Shop order', 'woocommerce' ); ?>">
-		<?php foreach ( $catalog_orderby_options as $id => $name ) : ?>
-			<option value="<?php echo esc_attr( $id ); ?>" <?php selected( $orderby, $id ); ?>><?php echo esc_html( $name ); ?></option>
-		<?php endforeach; ?>
-	</select>
-	<input type="hidden" name="paged" value="1" />
-	<?php wc_query_string_form_fields( null, array( 'orderby', 'submit', 'paged', 'product-page' ) ); ?>
+<div class="view-options__divider"></div>
+<form class="view-options__control woocommerce-ordering" method="get">
+    <label for="orderby"><?= esc_html__( 'Сортировать', 'woocommerce' ) ?></label>
+    <div>
+        <select id="orderby" name="orderby" class="orderby form-control form-control-sm" aria-label="<?php esc_attr_e( 'Shop order', 'woocommerce' ); ?>">
+		    <?php foreach ( $catalog_orderby_options as $id => $name ) : ?>
+                <option value="<?php echo esc_attr( $id ); ?>" <?php selected( $orderby, $id ); ?>><?php echo esc_html( $name ); ?></option>
+		    <?php endforeach; ?>
+        </select>
+        <input type="hidden" name="paged" value="1" />
+	    <?php wc_query_string_form_fields( null, array( 'orderby', 'submit', 'paged', 'product-page' ) ); ?>
+    </div>
 </form>

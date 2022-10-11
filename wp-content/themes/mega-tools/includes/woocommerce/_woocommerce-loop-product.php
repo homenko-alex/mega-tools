@@ -9,12 +9,12 @@ add_action('woocommerce_before_shop_loop_item', 'woocommerce_template_loop_produ
 function woocommerce_template_loop_product_link_open()
 {
 	?>
-	<button class="product-card__quickview" type="button">
-		<svg width="16px" height="16px">
-			<use xlink:href="<?= get_template_directory_uri() ?>/assets/dist/images/sprite.svg#quickview-16"></use>
-		</svg>
-		<span class="fake-svg-icon"></span>
-	</button>
+            <button class="product-card__quickview" type="button">
+                <svg width="16px" height="16px">
+                    <use xlink:href="<?= get_template_directory_uri() ?>/assets/dist/images/sprite.svg#quickview-16"></use>
+                </svg>
+                <span class="fake-svg-icon"></span>
+            </button>
 	<?php
 }
 
@@ -210,6 +210,34 @@ function woocommerce_template_loop_actions_buttons()
         </button>
     </div>
 	<?php
+}
+
+/**
+* Open Card
+ */
+add_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_card_open', 5 );
+function woocommerce_template_loop_product_card_open($class)
+{
+
+    if( is_product_category() )
+    {
+        echo '<div class="products-list__item">';
+    }
+    echo '<div class="product-card product-card--hidden-actions ' . $class . '">';
+}
+
+/**
+* Close Card
+ */
+add_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_card_close', 30 );
+function woocommerce_template_loop_product_card_close()
+{
+    echo '</div>';
+
+	if( is_product_category() )
+	{
+		echo '</div>';
+	}
 }
 
 /**

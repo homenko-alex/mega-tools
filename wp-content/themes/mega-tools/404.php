@@ -10,51 +10,30 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
-
-		<section class="error-404 not-found">
-			<header class="page-header">
-				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'mega-tools' ); ?></h1>
-			</header><!-- .page-header -->
-
-			<div class="page-content">
-				<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'mega-tools' ); ?></p>
-
-					<?php
-					get_search_form();
-
-					the_widget( 'WP_Widget_Recent_Posts' );
-					?>
-
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'mega-tools' ); ?></h2>
-						<ul>
-							<?php
-							wp_list_categories(
-								array(
-									'orderby'    => 'count',
-									'order'      => 'DESC',
-									'show_count' => 1,
-									'title_li'   => '',
-									'number'     => 10,
-								)
-							);
-							?>
-						</ul>
-					</div><!-- .widget -->
-
-					<?php
-					/* translators: %1$s: smiley */
-					$mega_tools_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'mega-tools' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$mega_tools_archive_content" );
-
-					the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
-
-			</div><!-- .page-content -->
-		</section><!-- .error-404 -->
-
-	</main><!-- #main -->
+    <div class="block">
+        <div class="container">
+            <div class="not-found">
+                <div class="not-found__404">
+	                <?php esc_html_e( 'Ой! Ошибка 404', 'mega-tools' ); ?>
+                </div>
+                <div class="not-found__content">
+                    <h1 class="not-found__title"><?php esc_html_e( 'Страница не найдена', 'mega-tools' ); ?></h1>
+                    <p class="not-found__text">
+	                    <?php esc_html_e( 'Мы не можем найти страницу, которую вы ищете.', 'mega-tools' ); ?><br>
+	                    <?php esc_html_e( 'Попробуйте воспользоваться поиском.', 'mega-tools' ); ?>
+                    </p>
+                    <form class="not-found__search">
+                        <input type="text" class="not-found__search-input form-control" placeholder="<?php esc_html_e( 'Товар', 'mega-tools' ); ?>">
+                        <button type="submit" class="not-found__search-button btn btn-primary"><?php esc_html_e( 'Поиск', 'mega-tools' ); ?></button>
+                    </form>
+                    <p class="not-found__text">
+	                    <?php esc_html_e( 'Или перейдите на главную страницу.', 'mega-tools' ); ?>
+                    </p>
+                    <a class="btn btn-secondary btn-sm" href="<?= home_url() ?>"><?php esc_html_e( 'Главная', 'mega-tools' ); ?></a>
+                </div>
+            </div>
+        </div>
+    </div>
 
 <?php
 get_footer();

@@ -19,4 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
+
+<?php if ( is_shop() ) { ?>
 <div class="products columns-<?php echo esc_attr( wc_get_loop_prop( 'columns' ) ); ?> products-list__body">
+<?php } ?>

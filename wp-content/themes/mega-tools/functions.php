@@ -36,6 +36,15 @@ require get_template_directory() . '/includes/_helpers.php';
  * Implement the Custom Footer feature.
  */
 require get_template_directory() . '/includes/_custom-footer.php';
+/**
+ * Shortcodes.
+ */
+require get_template_directory() . '/includes/_shortcodes.php';
+/**
+ * Auth and Registration.
+ */
+require get_template_directory() . '/includes/_auth.php';
+
 /*
  * Woocommerce
  */
@@ -48,6 +57,8 @@ if ( class_exists( 'WooCommerce' ) )
 	require get_template_directory() . '/includes/woocommerce/_woocommerce-helpers.php';
 	require get_template_directory() . '/includes/woocommerce/_woocommerce-loop-product.php';
 	require get_template_directory() . '/includes/woocommerce/_woocommerce-shop.php';
+	require get_template_directory() . '/includes/woocommerce/_woocommerce-cart.php';
+	require get_template_directory() . '/includes/woocommerce/_woocommerce-product-widget.php';
 }
 
 add_filter( 'upload_size_limit', 'PBP_increase_upload' );

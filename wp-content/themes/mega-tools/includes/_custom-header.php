@@ -275,7 +275,7 @@ function mega_header_TagHeaderInner()
                                                                                                 <ul class="megamenu__links megamenu__links--level--1">
 					                                                                                <?php $i=0; foreach ( $child['children'] as $item ) { ?>
                                                                                                     <li class="megamenu__item">
-                                                                                                        <a href="">
+                                                                                                        <a href="<?= get_category_link($item['id']) ?>">
                                                                                                             <?= $item['name'] ?>
                                                                                                         </a>
                                                                                                         <?php if( $i === 4 ) break; ?>
@@ -345,115 +345,22 @@ function mega_header_TagHeaderInner()
                                     </a>
                                 </div>
                                 <div class="indicator indicator--trigger--click">
-                                    <a href="<?= home_url() ?>" class="indicator__button">
+                                    <a href="<?= wc_get_page_permalink( 'cart' ) ?>" class="indicator__button">
                                             <span class="indicator__area">
                                                 <svg width="20px" height="20px">
                                                     <use xlink:href="<?= get_template_directory_uri() ?>/assets/dist/images/sprite.svg#cart-20"></use>
                                                 </svg>
-                                                <span class="indicator__value">3</span>
+                                                <span class="indicator__value"><?= WC()->cart->get_cart_contents_count() ?></span>
                                             </span>
                                     </a>
                                     <div class="indicator__dropdown">
                                         <!-- .dropcart -->
-                                        <div class="dropcart dropcart--style--dropdown">
-                                            <div class="dropcart__body">
-                                                <div class="dropcart__products-list">
-                                                    <div class="dropcart__product">
-                                                        <div class="product-image dropcart__product-image">
-                                                            <a href="product.html" class="product-image__body">
-                                                                <img class="product-image__img" src="<?= get_template_directory_uri() ?>/assets/dist/images/products/product-1.jpg" alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="dropcart__product-info">
-                                                            <div class="dropcart__product-name"><a href="product.html">Electric Planer Brandix KL370090G 300 Watts</a></div>
-                                                            <ul class="dropcart__product-options">
-                                                                <li>Color: Yellow</li>
-                                                                <li>Material: Aluminium</li>
-                                                            </ul>
-                                                            <div class="dropcart__product-meta">
-                                                                <span class="dropcart__product-quantity">2</span> ×
-                                                                <span class="dropcart__product-price">$699.00</span>
-                                                            </div>
-                                                        </div>
-                                                        <button type="button" class="dropcart__product-remove btn btn-light btn-sm btn-svg-icon">
-                                                            <svg width="10px" height="10px">
-                                                                <use xlink:href="images/sprite.svg#cross-10"></use>
-                                                            </svg>
-                                                        </button>
-                                                    </div>
-                                                    <div class="dropcart__product">
-                                                        <div class="product-image dropcart__product-image">
-                                                            <a href="product.html" class="product-image__body">
-                                                                <img class="product-image__img" src="images/products/product-2.jpg" alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="dropcart__product-info">
-                                                            <div class="dropcart__product-name"><a href="product.html">Undefined Tool IRadix DPS3000SY 2700 watts</a></div>
-                                                            <div class="dropcart__product-meta">
-                                                                <span class="dropcart__product-quantity">1</span> ×
-                                                                <span class="dropcart__product-price">$849.00</span>
-                                                            </div>
-                                                        </div>
-                                                        <button type="button" class="dropcart__product-remove btn btn-light btn-sm btn-svg-icon">
-                                                            <svg width="10px" height="10px">
-                                                                <use xlink:href="images/sprite.svg#cross-10"></use>
-                                                            </svg>
-                                                        </button>
-                                                    </div>
-                                                    <div class="dropcart__product">
-                                                        <div class="product-image dropcart__product-image">
-                                                            <a href="product.html" class="product-image__body">
-                                                                <img class="product-image__img" src="images/products/product-5.jpg" alt="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="dropcart__product-info">
-                                                            <div class="dropcart__product-name"><a href="product.html">Brandix Router Power Tool 2017ERXPK</a></div>
-                                                            <ul class="dropcart__product-options">
-                                                                <li>Color: True Red</li>
-                                                            </ul>
-                                                            <div class="dropcart__product-meta">
-                                                                <span class="dropcart__product-quantity">3</span> ×
-                                                                <span class="dropcart__product-price">$1,210.00</span>
-                                                            </div>
-                                                        </div>
-                                                        <button type="button" class="dropcart__product-remove btn btn-light btn-sm btn-svg-icon">
-                                                            <svg width="10px" height="10px">
-                                                                <use xlink:href="images/sprite.svg#cross-10"></use>
-                                                            </svg>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                                <div class="dropcart__totals">
-                                                    <table>
-                                                        <tr>
-                                                            <th>Subtotal</th>
-                                                            <td>$5,877.00</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Shipping</th>
-                                                            <td>$25.00</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Tax</th>
-                                                            <td>$0.00</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th>Total</th>
-                                                            <td>$5,902.00</td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-                                                <div class="dropcart__buttons">
-                                                    <a class="btn btn-secondary" href="cart.html">View Cart</a>
-                                                    <a class="btn btn-primary" href="checkout.html">Checkout</a>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <?= get_template_part('template-parts/cart/cart', 'mini') ?>
                                         <!-- .dropcart / end -->
                                     </div>
                                 </div>
                                 <div class="indicator indicator--trigger--click">
-                                    <a href="<?= home_url() ?>" class="indicator__button">
+                                    <a href="<?= wc_get_account_endpoint_url('dashboard') ?>" class="indicator__button">
                                             <span class="indicator__area">
                                                 <svg width="20px" height="20px">
                                                     <use xlink:href="<?= get_template_directory_uri() ?>/assets/dist/images/sprite.svg#person-20"></use>
@@ -462,45 +369,61 @@ function mega_header_TagHeaderInner()
                                     </a>
                                     <div class="indicator__dropdown">
                                         <div class="account-menu">
-                                            <form class="account-menu__form">
-                                                <div class="account-menu__form-title">Log In to Your Account</div>
-                                                <div class="form-group">
-                                                    <label for="header-signin-email" class="sr-only">Email address</label>
-                                                    <input id="header-signin-email" type="email" class="form-control form-control-sm" placeholder="Email address">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="header-signin-password" class="sr-only">Password</label>
-                                                    <div class="account-menu__form-forgot">
-                                                        <input id="header-signin-password" type="password" class="form-control form-control-sm" placeholder="Password">
-                                                        <a href="" class="account-menu__form-forgot-link">Forgot?</a>
+
+                                            <?php if( is_user_logged_in() ) { ?>
+                                                <div class="account-menu__divider"></div>
+                                                <a href="<?= get_permalink( wc_get_page_id( 'myaccount' ) ) ?>" class="account-menu__user">
+                                                    <div class="account-menu__user-avatar">
+                                                        <?php
+                                                        $current_user = wp_get_current_user();
+                                                        $avatar = get_avatar_url( get_current_user_id() );
+                                                        ?>
+                                                        <img src="<?= $avatar ?>" alt="">
                                                     </div>
-                                                </div>
-                                                <div class="form-group account-menu__form-button">
-                                                    <button type="submit" class="btn btn-primary btn-sm">Login</button>
-                                                </div>
-                                                <div class="account-menu__form-link"><a href="account-login.html">Create An Account</a></div>
-                                            </form>
-                                            <div class="account-menu__divider"></div>
-                                            <a href="account-dashboard.html" class="account-menu__user">
-                                                <div class="account-menu__user-avatar">
-                                                    <img src="images/avatars/avatar-3.jpg" alt="">
-                                                </div>
-                                                <div class="account-menu__user-info">
-                                                    <div class="account-menu__user-name">Helena Garcia</div>
-                                                    <div class="account-menu__user-email">stroyka@example.com</div>
-                                                </div>
-                                            </a>
-                                            <div class="account-menu__divider"></div>
-                                            <ul class="account-menu__links">
-                                                <li><a href="account-profile.html">Edit Profile</a></li>
-                                                <li><a href="account-orders.html">Order History</a></li>
-                                                <li><a href="account-addresses.html">Addresses</a></li>
-                                                <li><a href="account-password.html">Password</a></li>
-                                            </ul>
-                                            <div class="account-menu__divider"></div>
-                                            <ul class="account-menu__links">
-                                                <li><a href="account-login.html">Logout</a></li>
-                                            </ul>
+                                                    <div class="account-menu__user-info">
+                                                        <div class="account-menu__user-name"><?= $current_user->display_name ?></div>
+                                                        <div class="account-menu__user-email"><?= $current_user->user_email ?></div>
+                                                    </div>
+                                                </a>
+                                                <div class="account-menu__divider"></div>
+                                                <ul class="account-menu__links">
+                                                    <li><a href="<?= wc_get_endpoint_url('edit-account', '', get_permalink(get_option('woocommerce_myaccount_page_id'))) ?>"><?php esc_html_e( 'Редактировать профиль', 'mega-tools' ); ?></a></li>
+                                                    <li><a href="<?= wc_get_endpoint_url('orders', '', get_permalink(get_option('woocommerce_myaccount_page_id'))) ?>"><?php esc_html_e( 'Заказы', 'mega-tools' ); ?></a></li>
+                                                    <li><a href="<?= wc_get_endpoint_url('edit-address', '', get_permalink(get_option('woocommerce_myaccount_page_id'))) ?>"><?php esc_html_e( 'Адрес', 'mega-tools' ); ?></a></li>
+                                                    <li><a href="#"><?php esc_html_e( 'Список желаний', 'mega-tools' ); ?></a></li>
+                                                </ul>
+                                                <div class="account-menu__divider"></div>
+                                                <ul class="account-menu__links">
+                                                    <li><a href="<?php echo esc_url( wc_get_account_endpoint_url( 'customer-logout' ) ); ?>"><?php esc_html_e( 'Выход', 'mega-tools' ); ?></a></li>
+                                                </ul>
+                                            <?php }else{ ?>
+                                                <form class="account-menu__form ajaxAuth" method="post" action="<?= wc_get_account_endpoint_url('dashboard') ?>">
+
+                                                    <input type="hidden" value="user_login" name="action">
+	                                                <?php wp_nonce_field( 'ajax-nonce', 'security' ); ?>
+
+                                                    <div class="account-menu__form-title"><?php esc_html_e( 'Войти в личный кабинет', 'mega-tools' ); ?></div>
+                                                    <div class="form-group">
+                                                        <label for="header-signin-email" class="sr-only"><?php esc_html_e( 'Email', 'mega-tools' ); ?></label>
+                                                        <input id="header-signin-email" type="email" class="form-control form-control-sm" placeholder="<?php esc_html_e( 'Email', 'mega-tools' ); ?>" name="email">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="header-signin-password" class="sr-only"><?php esc_html_e( 'Пароль', 'mega-tools' ); ?></label>
+                                                        <div class="account-menu__form-forgot">
+                                                            <input id="header-signin-password" type="password" class="form-control form-control-sm" placeholder="<?php esc_html_e( 'Пароль', 'mega-tools' ); ?>" name="password">
+                                                            <a href="<?php echo esc_url( wp_lostpassword_url() ); ?>" class="account-menu__form-forgot-link"><?php esc_html_e( 'Забыли пароль?', 'mega-tools' ); ?></a>
+                                                        </div>
+
+                                                        <div class="message"></div>
+
+                                                    </div>
+                                                    <div class="form-group account-menu__form-button">
+                                                        <button type="submit" class="btn btn-primary btn-sm"><?php esc_html_e( 'Войти', 'mega-tools' ); ?></button>
+                                                    </div>
+                                                    <div class="account-menu__form-link"><a href="<?= get_permalink( wc_get_page_id( 'myaccount' ) ) ?>"><?php esc_html_e( 'Регистрация', 'mega-tools' ); ?></a></div>
+                                                </form>
+                                            <?php } ?>
+
                                         </div>
                                     </div>
                                 </div>

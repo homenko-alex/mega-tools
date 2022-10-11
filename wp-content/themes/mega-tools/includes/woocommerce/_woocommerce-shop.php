@@ -2,6 +2,19 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
+ * Remove Action
+ */
+remove_action( 'woocommerce_before_subcategory', 'woocommerce_template_loop_category_link_open', 10 );
+remove_action( 'woocommerce_before_subcategory_title', 'woocommerce_subcategory_thumbnail', 10 );
+remove_action( 'woocommerce_shop_loop_subcategory_title', 'woocommerce_template_loop_category_title', 10 );
+remove_action( 'woocommerce_after_subcategory_title', 'woocommerce_template_loop_category_title', 10 );
+remove_action( 'woocommerce_after_subcategory', 'woocommerce_template_loop_category_link_close', 10 );
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
+remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
+
+/**
  * Show All Categories on Shop Page
  */
 add_filter( 'woocommerce_product_subcategories_hide_empty', '__return_false' );
@@ -34,11 +47,6 @@ function woocommerce_shop_title()
 }
 
 /**
- * Remove Breadcrumb
- */
-remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
-
-/**
  * Add Container Open Tag
  */
 add_action( 'woocommerce_archive_description', 'woocommerce_shop_open_wrap', 5 );
@@ -60,19 +68,9 @@ function woocommerce_shop_close_wrap()
     <?php
 }
 
-/**
- * Remove Sidebar
- */
-remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
-
 /**************************************************************************************************************
  * Category Page
  */
-remove_action( 'woocommerce_before_subcategory', 'woocommerce_template_loop_category_link_open', 10 );
-remove_action( 'woocommerce_before_subcategory_title', 'woocommerce_subcategory_thumbnail', 10 );
-remove_action( 'woocommerce_shop_loop_subcategory_title', 'woocommerce_template_loop_category_title', 10 );
-remove_action( 'woocommerce_after_subcategory_title', 'woocommerce_template_loop_category_title', 10 );
-remove_action( 'woocommerce_after_subcategory', 'woocommerce_template_loop_category_link_close', 10 );
 
 /**
  * Open Tag
@@ -245,3 +243,82 @@ function woocommerce_shop_cat_content_count_products($category)
 
 }
 
+/**
+ * Open Container
+ */
+add_action( 'woocommerce_catalog_mega_start', 'woocommerce_catalog_open_container', 5 );
+function woocommerce_catalog_open_container()
+{
+
+    if( is_product_category() )
+    {
+        ?>
+        <div class="shop-layout shop-layout--sidebar--start">
+
+            <?php wc_get_template( 'global/sidebar.php' ); ?>
+
+            <div class="shop-layout__content">
+                <div class="block">
+                    <div class="products-view">
+	                    <?php wc_get_template( 'global/options.php' ); ?>
+                        <div class="products-view__list products-list" data-layout="grid-3-sidebar" data-with-features="false" data-mobile-grid-columns="2">
+                            <div class="products-list__body">
+        <?php
+
+    }
+
+}
+
+/**
+ * Close Container
+ */
+add_action( 'woocommerce_catalog_mega_end', 'woocommerce_catalog_close_container', 5 );
+function woocommerce_catalog_close_container()
+{
+
+	if( is_product_category() )
+	{
+		?>
+                                </div>
+                            </div>
+                        <?php if( wc_get_loop_prop( 'total' ) ) { ?>
+                            <div class="products-view__pagination">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link page-link--with-arrow" href="" aria-label="Previous">
+                        <svg class="page-link__arrow page-link__arrow--left" aria-hidden="true" width="8px" height="13px">
+                            <use xlink:href="images/sprite.svg#arrow-rounded-left-8x13"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="">1</a></li>
+                <li class="page-item active"><a class="page-link" href="">2 <span class="sr-only">(current)</span></a></li>
+                <li class="page-item"><a class="page-link" href="">3</a></li>
+                <li class="page-item">
+                    <a class="page-link page-link--with-arrow" href="" aria-label="Next">
+                        <svg class="page-link__arrow page-link__arrow--right" aria-hidden="true" width="8px" height="13px">
+                            <use xlink:href="images/sprite.svg#arrow-rounded-right-8x13"></use>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </div>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<?php
+
+	}
+
+}
+
+add_action( 'woocommerce_shop_options', 'woocommerce_result_count', 10 );
+add_action( 'woocommerce_shop_options', 'woocommerce_catalog_ordering', 15 );
+
+add_action( 'woocommerce_shop_options', 'woocommerce_catalog_show_count', 20 );
+function woocommerce_catalog_show_count()
+{
+	wc_get_template('loop/show-count.php');
+}

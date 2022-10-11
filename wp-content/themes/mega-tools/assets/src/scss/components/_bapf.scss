@@ -1,0 +1,22 @@
+/*
+// .alert
+*/
+@import '../variables';
+@import '../mixins/direction';
+
+.bapf {
+
+    &_sfilter {
+        margin: 0;
+
+        .bapf {
+
+            &_button {
+                font-size: 0.875rem;
+            }
+        }
+
+    }
+
+
+}

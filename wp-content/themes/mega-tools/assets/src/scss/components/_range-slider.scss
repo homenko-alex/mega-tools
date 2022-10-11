@@ -1,0 +1,71 @@
+/*
+// .nouislider
+*/
+@use 'sass:math';
+@import '../variables';
+@import '../mixins/direction';
+
+.bapf_slidr_main.ui-widget-content .ui-slider-handle,
+.berocket_filter_price_slider.ui-widget-content .ui-slider-handle,
+.slide.default .bapf_slidr_main .ui-state-default,
+.slide.default .bapf_slidr_main .ui-widget-header .ui-state-default,
+.slide.default .bapf_slidr_main.ui-widget-content .ui-state-default,
+.slide.default .berocket_filter_price_slider .ui-state-default,
+.slide.default .berocket_filter_price_slider .ui-widget-header .ui-state-default,
+.slide.default .berocket_filter_price_slider.ui-widget-content .ui-state-default {
+
+  $size: 16px;
+  width: $size;
+  height: $size;
+  border-radius: 8px;
+  background: $light-opposite-color;
+  box-shadow: 0 0 0 0 rgb(61 70 77 / 0%);
+  transition: box-shadow .2s;
+  cursor: ew-resize;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgb(61 70 77 / 30%);
+
+    &::after {
+      transform: scale(0);
+    }
+  }
+
+  &::after {
+    top: 0;
+    display: block;
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    margin: 5px;
+    border-radius: 3px;
+    background: $accent-color;
+    transition: transform .2s;
+  }
+
+}
+
+.bapf_slidr_main.ui-widget-content,
+.berocket_filter_price_slider.ui-widget-content {
+  background: $nouislider-bg-color;
+  border-radius: 3px;
+  height: 6px;
+  margin-top: 13px;
+  margin-bottom: 0;
+}
+
+.bapf_slidr_main.ui-widget-content .ui-slider-range,
+.berocket_filter_price_slider.ui-widget-content .ui-slider-range {
+  border-radius: 2px;
+  background: $accent-color;
+}
+
+.bapf_slidr_jqrui .bapf_from,
+.bapf_slidr_jqrui .bapf_to {
+  margin-bottom: 0;
+  margin-top: 16px;
+  font-size: 14px;
+  color: $light-opposite-muted-color;
+}

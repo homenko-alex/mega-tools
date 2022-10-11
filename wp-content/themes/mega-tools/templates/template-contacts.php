@@ -11,7 +11,7 @@ $contacts = get_field('contacts');
 
     <div class="block-map block">
         <div class="block-map__body">
-            <iframe src='https://maps.google.com/maps?q=Holbrook-Palmer%20Park&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed' frameborder='0' scrolling='no' marginheight='0' marginwidth='0'></iframe>
+	        <?= $contacts['map'] ?>
         </div>
     </div>
     <div class="page-header">

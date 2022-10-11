@@ -28,14 +28,15 @@ function mega_add_my_currency_symbol( $currency_symbol, $currency ) {
  *
  * @return array
  */
-function list_product_categories()
+function list_product_categories($child_of = 0)
 {
 	$categories = get_terms(
-		array(
+		[
 			'taxonomy'   => 'product_cat',
 			'orderby'    => 'name',
 			'hide_empty' => false,
-		)
+			'child_of' => $child_of,
+		]
 	);
 
 	$categories = treeify_terms($categories);
@@ -57,8 +58,10 @@ function treeify_terms($terms, $root_id = 0)
 
 	$tree = [];
 
-	foreach ($terms as $term) {
-		if ($term->parent === $root_id) {
+	foreach ($terms as $term)
+	{
+		if ($term->parent === $root_id)
+		{
 			array_push(
 				$tree,
 				[

@@ -38,9 +38,10 @@
 }
 .widget-filters__actions {
     padding-top: 24px;
-    padding-bottom: 16px;
+    padding-bottom: 6px;
 
-    & > .btn + .btn {
+    & > .btn + .btn,
+    & > div + div{
         @include direction {
             #{$margin-inline-start}: 8px;
         }

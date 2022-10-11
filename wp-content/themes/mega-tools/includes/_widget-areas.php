@@ -70,5 +70,33 @@ function mega_widgets_init()
 		'after_title'   => '</h5>',
 	) );
 
+	/*
+	* Shop: Sidebar Filters
+	*/
+	register_sidebar( array(
+		'name'          => esc_html__( 'Shop Sidebar Filters', 'mega' ),
+		'id'            => 'shop-sidebar-filters',
+		'class'         => '',
+		'description'   => esc_html__( 'Add widgets here.', 'mega' ),
+		'before_widget' => '',
+		'after_widget'  => '',
+		'before_title'  => '',
+		'after_title'   => '',
+	) );
+
+	/*
+	* Shop: Sidebar Latest Products
+	*/
+	register_sidebar( array(
+		'name'          => esc_html__( 'Shop Sidebar Latest Products', 'mega' ),
+		'id'            => 'shop-sidebar-latest-products',
+		'class'         => '',
+		'description'   => esc_html__( 'Add widgets here.', 'mega' ),
+		'before_widget' => '<div class="block-sidebar__item d-none d-lg-block"><div class="widget-products widget">',
+		'after_widget'  => '</div></div>',
+		'before_title'  => '<h4 class="widget__title">',
+		'after_title'   => '</h4>',
+	) );
+
 }
 

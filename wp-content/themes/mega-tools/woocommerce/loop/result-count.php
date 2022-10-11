@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<p class="woocommerce-result-count">
+<div class="woocommerce-result-count view-options__legend">
 	<?php
 	// phpcs:disable WordPress.Security
 	if ( 1 === intval( $total ) ) {
@@ -37,4 +37,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	}
 	// phpcs:enable WordPress.Security
 	?>
-</p>
+</div>

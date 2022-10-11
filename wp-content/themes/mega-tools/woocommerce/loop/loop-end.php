@@ -19,4 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
+<?php if ( is_shop() ) { ?>
 </div>
+<?php } ?>
+
