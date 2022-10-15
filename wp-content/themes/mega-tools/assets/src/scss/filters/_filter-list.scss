@@ -114,12 +114,13 @@ $local-margin: 8px;
                             width: 8px;
                             height: 4px;
                             border: 2px solid $light-opposite-color;
-                            border-left: none;
+                            border-right: none;
                             border-top: none;
                             left: 2px;
                             top: 2px;
-                            transform: rotate(-45deg);
+                            transform: rotate(-90deg);
                             transition: fill .15s,transform .15s,visibility 0s .15s;
+
                         }
                     }
 

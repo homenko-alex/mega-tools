@@ -4528,11 +4528,11 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-origin {
   width: 8px;
   height: 4px;
   border: 2px solid #3d464d;
-  border-left: none;
+  border-right: none;
   border-top: none;
   left: 2px;
   top: 2px;
-  transform: rotate(-45deg);
+  transform: rotate(-90deg);
   transition: fill 0.15s, transform 0.15s, visibility 0s 0.15s;
 }
 .filter-list__list-items-checkbox > li input[type=checkbox]:checked + label::before {
