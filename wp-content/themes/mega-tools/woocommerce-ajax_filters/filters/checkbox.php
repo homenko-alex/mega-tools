@@ -18,6 +18,13 @@ if( $attribute === 'product_cat' )
 	return;
 }
 
+$class_color = null;
+if( $attribute === 'pa_color' )
+{
+
+	$class_color = 'colors';
+}
+
 foreach($terms as $term){break;}
 //Get default template functionality
 $template_content = BeRocket_AAPF_Template_Build_default();
@@ -39,7 +46,7 @@ $template_content['template']['content']['filter']['content']['list']           
     'tag'           => 'ul',
     'attributes'    => array(
 	    'class'         => array(
-			'filter-list__list-items-checkbox'
+			'filter-list__list-items-checkbox ' . $class_color
 	    ),
     ),
     'content'       => array()
@@ -69,7 +76,7 @@ foreach( $terms as $i => $term ) {
                     'for'           => $element_unique
                 ),
                 'content'       => array(
-                    'name' => $term->name
+                    'name' => esc_html__($term->name)
                 )
             ),
         )

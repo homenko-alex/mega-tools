@@ -4475,11 +4475,11 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-origin {
   padding: 1px 0 !important;
 }
 
-.filter-list__list-items-checkbox {
+.bapf_sfilter ul.filter-list__list-items-checkbox:not(.colors) {
   margin: 0;
   padding: 0;
 }
-.filter-list__list-items-checkbox > li {
+.bapf_sfilter ul.filter-list__list-items-checkbox:not(.colors) > li {
   padding: 1px 0 !important;
   cursor: pointer;
   display: flex;
@@ -4487,7 +4487,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-origin {
   position: relative;
   overflow: hidden;
 }
-.filter-list__list-items-checkbox > li input[type=checkbox] {
+.bapf_sfilter ul.filter-list__list-items-checkbox:not(.colors) > li input[type=checkbox] {
   opacity: 0;
   position: absolute;
   width: 100%;
@@ -4497,7 +4497,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-origin {
   cursor: inherit;
   margin: 0 !important;
 }
-.filter-list__list-items-checkbox > li input[type=checkbox] + label {
+.bapf_sfilter ul.filter-list__list-items-checkbox:not(.colors) > li input[type=checkbox] + label {
   padding: 1px 0 1px 28px;
   font-size: 14px;
   line-height: 14px;
@@ -4506,7 +4506,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-origin {
   position: relative;
   margin: 0;
 }
-.filter-list__list-items-checkbox > li input[type=checkbox] + label::before {
+.bapf_sfilter ul.filter-list__list-items-checkbox:not(.colors) > li input[type=checkbox] + label::before {
   content: "";
   display: block;
   width: 16px;
@@ -4520,35 +4520,94 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-origin {
   top: -1px;
   z-index: 2;
 }
-.filter-list__list-items-checkbox > li input[type=checkbox] + label::after {
+.bapf_sfilter ul.filter-list__list-items-checkbox:not(.colors) > li input[type=checkbox] + label::after {
   content: "";
   display: block;
   position: absolute;
   z-index: 3;
-  width: 8px;
+  width: 7px;
   height: 4px;
   border: 2px solid #3d464d;
   border-right: none;
   border-top: none;
-  left: 2px;
-  top: 2px;
-  transform: rotate(-90deg);
+  left: 5px;
+  top: 4px;
+  transform: scale(0) rotate(-45deg);
   transition: fill 0.15s, transform 0.15s, visibility 0s 0.15s;
 }
-.filter-list__list-items-checkbox > li input[type=checkbox]:checked + label::before {
+.bapf_sfilter ul.filter-list__list-items-checkbox:not(.colors) > li input[type=checkbox]:checked + label::before {
   background: #ffd333;
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
 }
-.filter-list__list-items-checkbox > li input[type=checkbox]:checked + label::after {
+.bapf_sfilter ul.filter-list__list-items-checkbox:not(.colors) > li input[type=checkbox]:checked + label::after {
   transition-delay: 0s, 0s, 0s;
-  transform: scale(1);
+  transform: scale(1) rotate(-45deg);
 }
-.filter-list__list-items-checkbox > li .roundpcs {
+.bapf_sfilter ul.filter-list__list-items-checkbox:not(.colors) > li .roundpcs {
   padding-top: 3px;
   font-size: 12px;
   line-height: 12px;
   color: #999;
   margin-left: auto;
+}
+.bapf_sfilter ul.filter-list__list-items-checkbox.colors {
+  padding: 2px 0 !important;
+  display: flex;
+  flex-wrap: wrap;
+  margin: -4px !important;
+}
+.bapf_sfilter ul.filter-list__list-items-checkbox.colors li {
+  cursor: pointer;
+  margin: 4px !important;
+  display: block !important;
+}
+.bapf_sfilter ul.filter-list__list-items-checkbox.colors li.bapf_term_white input[type=checkbox] + label::after {
+  border-color: #bfbfbf;
+}
+.bapf_sfilter ul.filter-list__list-items-checkbox.colors li.bapf_term_white label > span {
+  background: #fff;
+  box-shadow: 0 0 0 2px #d9d9d9 inset;
+}
+.bapf_sfilter ul.filter-list__list-items-checkbox.colors li input[type=checkbox]:checked + label span {
+  transform: unset;
+}
+.bapf_sfilter ul.filter-list__list-items-checkbox.colors li input[type=checkbox]:checked + label::after {
+  transition-delay: 0s, 0s, 0s;
+  transform: scale(1) rotate(-45deg);
+}
+.bapf_sfilter ul.filter-list__list-items-checkbox.colors li input[type=checkbox] + label {
+  position: relative;
+}
+.bapf_sfilter ul.filter-list__list-items-checkbox.colors li input[type=checkbox] + label::after {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 3;
+  width: 10px;
+  height: 6px;
+  border: 2px solid #fff;
+  border-right: none;
+  border-top: none;
+  left: 7px;
+  top: 6px;
+  transform: scale(0) rotate(-45deg);
+  transition: fill 0.15s, transform 0.15s, visibility 0s 0.15s;
+}
+.bapf_sfilter ul.filter-list__list-items-checkbox.colors li label {
+  margin: 0;
+  display: block;
+}
+.bapf_sfilter ul.filter-list__list-items-checkbox.colors li label > span {
+  display: block !important;
+  width: 22px;
+  height: 22px;
+  line-height: 22px;
+  border-radius: 2px;
+  background: currentColor;
+  cursor: inherit;
+  text-shadow: unset;
+  border: none;
+  margin: 0;
 }
 
 /*
@@ -9638,6 +9697,10 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-origin {
     font-size: 24px;
     margin-bottom: 18px;
   }
+}
+
+.products__empty {
+  padding: 15px 0 0 0;
 }
 
 /*

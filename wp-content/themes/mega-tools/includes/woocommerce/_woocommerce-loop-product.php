@@ -177,10 +177,21 @@ add_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_action
 function woocommerce_template_loop_actions_status()
 {
     global $product;
+
+	if ( $product->is_in_stock() )
+    {
+		$text = __('Есть', 'woocommerce');
+	}
+
+	if ( ! $product->is_in_stock() )
+    {
+		$text = __('Нет', 'woocommerce');
+	}
+
 	$status = $product->get_stock_status();
 	?>
     <div class="product-card__availability">
-		<?= _e( 'Наличие', 'mega-tools' ) ?>: <span class="text-success"><?= $status ?></span>
+		<?= _e( 'Наличие', 'mega-tools' ) ?>: <span class="text-success"><?= $text ?></span>
     </div>
 	<?php
 }

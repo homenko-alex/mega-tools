@@ -13,6 +13,7 @@ remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
 remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
 remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
 remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_output_all_notices', 10 );
 
 /**
  * Show All Categories on Shop Page
@@ -260,7 +261,11 @@ function woocommerce_catalog_open_container()
             <div class="shop-layout__content">
                 <div class="block">
                     <div class="products-view">
+
 	                    <?php wc_get_template( 'global/options.php' ); ?>
+
+                        <?= do_action('shop_notice') ?>
+
                         <div class="products-view__list products-list" data-layout="grid-3-sidebar" data-with-features="false" data-mobile-grid-columns="2">
                             <div class="products-list__body">
         <?php
@@ -320,5 +325,22 @@ add_action( 'woocommerce_shop_options', 'woocommerce_catalog_ordering', 15 );
 add_action( 'woocommerce_shop_options', 'woocommerce_catalog_show_count', 20 );
 function woocommerce_catalog_show_count()
 {
-	wc_get_template('loop/show-count.php');
+	//wc_get_template('loop/show-count.php');
+}
+
+/**
+ * Notice
+ */
+add_action('shop_notice', 'shop_woocommerce_output_all_notices', 10);
+function shop_woocommerce_output_all_notices()
+{
+
+	$all_notices  = WC()->session->get( 'wc_notices', array() );
+    if( $all_notices )
+    {
+	    echo '<div class="woocommerce-notices-wrapper alert alert-lg alert-primary">';
+	    wc_print_notices();
+	    echo '</div>';
+    }
+
 }

@@ -1,5 +1,7 @@
 {
   "post_types": {
+    "product": {},
+    "product_variation": {},
     "br_product_filter" : {},
     "page": {},
     "post": {},
@@ -20,7 +22,10 @@
     "category" : {},
     "post_tag" : {},
     "brands" : {},
-    "materials" : {}
+    "materials" : {},
+    "product_cat" : {},
+    "product_tag" : {},
+    "product_shipping_class" : {}
   },
   "term_fields": {},
   "user_fields": {},
@@ -32,7 +37,9 @@
     "widgets",
     "settings-network",
     "site-settings-network",
-    "toplevel_page_my_contacts"
+    "toplevel_page_my_contacts",
+    "woocommerce_page_wc-settings",
+    "product_page_product_attributes"
   ],
   "options": {
     "blogname": {},
@@ -56,5 +63,11 @@
       "content": {}
     }
   },
-  "admin_html_tags": {}
+  "admin_html_tags": {
+    "product_page_product_attributes": {
+      "value": [
+        "#attribute_label"
+      ]
+    }
+  }
 }
